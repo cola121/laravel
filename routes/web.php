@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+    Route::group(['domain'=>'www.hankele.cn'], function() {
+        //return view('welcome');
+        Route::get('/test', 'Wxapi\IndexController@test');
+    });
+
+//    Route::group(['domain'=>'wxapi.hankele.cn'], function() {
+//        Route:get('', function() {});
+//    });
