@@ -22,8 +22,5 @@ class CommonUtils {
         return $result;
     }
 
-    static function test() {
-        return 'dddooo';
-    }
 
 }

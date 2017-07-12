@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        'App\Console\Commands\SaveMovie',
     ];
 
     /**
@@ -24,9 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->call(function () {
-             
-         })->hourly();
+         $schedule->command('SaveMovie')->everyMinute();
     }
 
     /**

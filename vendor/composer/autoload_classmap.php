@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\SaveMovie' => $baseDir . '/app/Console/Commands/SaveMovie.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -25,6 +26,7 @@ return array(
     'App\\Lib\\VideoTypes' => $baseDir . '/app/Lib/VideoTypes.php',
     'App\\Lib\\getDouBanMovieInfo' => $baseDir . '/app/Lib/getDouBanMovieInfo.class.php',
     'App\\Models\\Actors' => $baseDir . '/app/Models/Actors.php',
+    'App\\Models\\MultiPurpose' => $baseDir . '/app/Models/MultiPurpose.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
     'App\\Models\\VideoImage' => $baseDir . '/app/Models/VideoImage.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',

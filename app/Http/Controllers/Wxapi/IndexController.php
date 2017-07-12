@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Video;
 use App\Models\Actors;
+use App\Models\MultiPurpose;
 use App\Lib\CommonUtils;
 use App\Lib\VideoTypes;
 use App\Lib\getDouBanMovieInfo;
@@ -14,8 +15,15 @@ class IndexController extends Controller
 {
     public function test(Request $request) {
         set_time_limit(0);
+
+        $purpose = MultiPurpose::where('purpose', 'saveStart')->first();
+        $startNum = $purpose->num_a;
+        $purpose->num_a = 299 + 10;
+        $purpose->update(['num_a' => 299 + 10]);
+        var_dump($startNum);
+
         //$this->save250(0);
-        $this->saveMovies(200);
+      //  $this->saveMovies(20);
 //        $result = Actors::where('db_id', 10023)->get();
 //        if ($result->first()) { }
 //        if ($result->isEmpty()) {echo 'empty'; }
@@ -71,7 +79,7 @@ class IndexController extends Controller
     {
        // $url = 'https://api.douban.com/v2/movie/in_theaters?start='.$start;
         //$url = 'https://api.douban.com/v2/movie/us_box';
-        $url = 'https://api.douban.com/v2/movie/search?tag=科幻&start='.$start;
+        $url = 'https://api.douban.com/v2/movie/search?tag=喜剧&start='.$start;
         $result = CommonUtils::requestUrl($url);
         //echo "<pre>";print_r(json_decode($result, true));
         $result = json_decode($result, true);

@@ -272,6 +272,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\SaveMovie' => __DIR__ . '/../..' . '/app/Console/Commands/SaveMovie.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -291,6 +292,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Lib\\VideoTypes' => __DIR__ . '/../..' . '/app/Lib/VideoTypes.php',
         'App\\Lib\\getDouBanMovieInfo' => __DIR__ . '/../..' . '/app/Lib/getDouBanMovieInfo.class.php',
         'App\\Models\\Actors' => __DIR__ . '/../..' . '/app/Models/Actors.php',
+        'App\\Models\\MultiPurpose' => __DIR__ . '/../..' . '/app/Models/MultiPurpose.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
         'App\\Models\\VideoImage' => __DIR__ . '/../..' . '/app/Models/VideoImage.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
