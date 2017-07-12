@@ -11,5 +11,5 @@ class Video extends Model
     protected $dateFormat = 'U';
 
     protected $primaryKey = 'video_id';
-
+    protected $fillable = ['year', 'duration'];
 }

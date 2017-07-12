@@ -17,6 +17,10 @@
         Route::get('/test', 'Wxapi\IndexController@test');
     });
 
-//    Route::group(['domain'=>'wxapi.hankele.cn'], function() {
-//        Route:get('', function() {});
-//    });
+    Route::group(['domain'=>'api.hankele.cn'], function() {
+
+        Route::get('/', function() {
+            return view('welcome');
+        });
+        Route::get('/VideoIndex', 'Wxapi\VideoIndexController@index');
+    });

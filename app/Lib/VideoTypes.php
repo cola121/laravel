@@ -56,4 +56,27 @@ class VideoTypes {
         }
         return '';
     }
+
+
+    /**
+     * 返回类型值
+     * @param $key str
+     * @return mixed
+     */
+    static function returnTypeArrValue ($key)
+    {
+        $typeResult = [];
+        $typesArr = self::typesArr;
+        $keys = explode(';', $key);
+        if (!empty($keys)) {
+            foreach ($keys as $val) {
+                if (intval($val)) {
+                    $typeResult[] = $typesArr[$val];
+                }
+            }
+        }
+
+        return $typeResult;
+    }
+
 }
