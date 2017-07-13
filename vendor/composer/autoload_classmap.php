@@ -23,6 +23,7 @@ return array(
     'App\\Http\\Middleware\\TrimStrings' => $baseDir . '/app/Http/Middleware/TrimStrings.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
     'App\\Lib\\CommonUtils' => $baseDir . '/app/Lib/CommonUtils.php',
+    'App\\Lib\\FuncUtils' => $baseDir . '/app/Lib/FuncUtils.php',
     'App\\Lib\\VideoTypes' => $baseDir . '/app/Lib/VideoTypes.php',
     'App\\Lib\\getDouBanMovieInfo' => $baseDir . '/app/Lib/getDouBanMovieInfo.class.php',
     'App\\Models\\Actors' => $baseDir . '/app/Models/Actors.php',

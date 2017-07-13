@@ -23,4 +23,5 @@
             return view('welcome');
         });
         Route::get('/VideoIndex', 'Wxapi\VideoIndexController@index');
+        Route::get('/VideoInfo/{id}', 'Wxapi\VideoInfoController@index');
     });

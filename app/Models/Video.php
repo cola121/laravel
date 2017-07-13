@@ -12,4 +12,12 @@ class Video extends Model
 
     protected $primaryKey = 'video_id';
     protected $fillable = ['year', 'duration'];
+
+    /**
+     * ¹ØÁª¾çÕÕ±í
+     */
+    public function getVideoImages()
+    {
+        return $this->hasMany('App\Models\VideoImage', 'video_id');
+    }
 }

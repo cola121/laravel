@@ -289,6 +289,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Lib\\CommonUtils' => __DIR__ . '/../..' . '/app/Lib/CommonUtils.php',
+        'App\\Lib\\FuncUtils' => __DIR__ . '/../..' . '/app/Lib/FuncUtils.php',
         'App\\Lib\\VideoTypes' => __DIR__ . '/../..' . '/app/Lib/VideoTypes.php',
         'App\\Lib\\getDouBanMovieInfo' => __DIR__ . '/../..' . '/app/Lib/getDouBanMovieInfo.class.php',
         'App\\Models\\Actors' => __DIR__ . '/../..' . '/app/Models/Actors.php',

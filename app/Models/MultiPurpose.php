@@ -9,6 +9,6 @@ class MultiPurpose extends Model
     //
     protected $table = 'multipurpose';
     protected $dateFormat = 'U';
-    protected $fillable = ['created_at', 'num_a'];
+    protected $fillable = ['created_at', 'num_a', 'num_b'];
 
 }
