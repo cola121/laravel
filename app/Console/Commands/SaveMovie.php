@@ -50,7 +50,7 @@ class SaveMovie extends Command
         $startNum = $purpose->num_a;
         $allVideo = Video::all()->count();
         if ($startNum < $allVideo) {
-            $next = 299 + 20;
+            $next = $startNum + 20;
             $videos = Video::whereBetween('video_id', [$startNum, $next])->get();
             foreach ($videos as $video)
             {
@@ -75,7 +75,38 @@ class SaveMovie extends Command
                 }
 
             }
+        } else {
+            $purposeb = MultiPurpose::where('purpose', 'saveTimeStart')->first();
+            $startNumb = $purposeb->num_a;
+            $nextb = $startNumb + 20;
+            if ($startNumb < $allVideo) {
+                $videos = Video::whereBetween('video_id', [$startNumb, $nextb])->get();
+                foreach ($videos as $video) {
+                    $dbID = $video->db_id;
+                    $id = $video->video_id;
+                    $url = 'https://movie.douban.com/subject/'.$dbID;
+                    $info = new getDouBanMovieInfo($url);
+                    $movies = $info->getMovieYear();
+                    $video->update([
+                        'year' => strtotime($info->getMovieYear()),
+                        'duration' =>  $info->getMovieInfoByParttern($info->longParttern) ? $info->getMovieInfoByParttern($info->longParttern) : 0
+                    ]);
+                    $purposeb->update(['num_a' => $nextb]);
+                    $images = $info->getMovieImgs();
+                    if (count($images) > 0) {
+                        foreach ($images as $row) {
+                            $vImage = new VideoImage();
+                            $vImage->image_name = $row;
+                            $vImage->video_id = $id;
+                            $vImage->save();
+                        }
+                    }
+
+                }
+            }
         }
+
+
 
         $this->info('end');
     }
