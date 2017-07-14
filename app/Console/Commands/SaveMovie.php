@@ -129,6 +129,7 @@ class SaveMovie extends Command
         $startNum = $purpose->num_a;
         $allVideo = Video::all()->count();
         if ($startNum < $allVideo) {
+            $hasFail = false;
             $next = $startNum + 20 > $allVideo ? $allVideo : $startNum + 20;
             $videos = Video::whereBetween('video_id', [$startNum, $next])->get();
             foreach ($videos as $video)
@@ -157,21 +158,42 @@ class SaveMovie extends Command
                     $multi->num_b = $startNum;
                     $multi->num_c = $id;
                     $multi->save();
+                    $hasFail = true;
+                    if ($result['code'] = 112) {
+                        break;
+                    }
                 }
-
             }
+
+            if ($hasFail) {
+                $this->updateInfo2($allVideo);
+            }
+
         } else {
-            $purposeb = MultiPurpose::where('purpose', 'saveTimeStart')->first();
-            $startNumb = $purposeb->num_a;
-            $nextb = $startNumb + 20 > $allVideo ? $allVideo : $startNumb + 20;
-            if ($startNumb < $allVideo) {
-                $videos = Video::whereBetween('video_id', [$startNumb, $nextb])->get();
-                foreach ($videos as $video) {
-                    $dbID = $video->db_id;
-                    $id = $video->video_id;
-                    $url = 'https://movie.douban.com/subject/'.$dbID;
-                    $info = new getDouBanMovieInfo($url);
-                    $movies = $info->getMovieYear();
+            $this->updateInfo2($allVideo);
+        }
+    }
+
+    public function updateInfo2($allVideo)
+    {
+        $purposeb = MultiPurpose::where('purpose', 'saveTimeStart')->first();
+        $startNumb = $purposeb->num_a;
+        $nextb = $startNumb + 20 > $allVideo ? $allVideo : $startNumb + 20;
+        if ($startNumb < $allVideo) {
+            $videos = Video::whereBetween('video_id', [$startNumb, $nextb])->get();
+            foreach ($videos as $video) {
+                $dbID = $video->db_id;
+                $id = $video->video_id;
+                $url = 'https://movie.douban.com/subject/'.$dbID;
+                $info = new getDouBanMovieInfo($url);
+                $movies = $info->getMovieYear();
+                var_dump($info);
+                $multi = new MultiPurpose();
+                $multi->purpose = 'SaveImage';
+                $multi->num_a = $video->video_id;
+                $multi->str_a = $info->getMovieYear() ? $info->getMovieYear() : 'false';
+                $multi->save();
+                if ($info->getMovieYear()) {
                     $video->update([
                         'year' => strtotime($info->getMovieYear()),
                         'duration' =>  $info->getMovieInfoByParttern($info->longParttern) ? $info->getMovieInfoByParttern($info->longParttern) : 0
@@ -186,8 +208,10 @@ class SaveMovie extends Command
                             $vImage->save();
                         }
                     }
-
+                } else {
+                    return false;
                 }
+
             }
         }
     }
