@@ -38,7 +38,6 @@ class getDouBanMovieInfo
         if (preg_match_all($pattern, $resData, $res)) {
             $this->resData = $res[1][0];
         }
-        var_dump($this->reqUrl);
 
     }
 
@@ -149,7 +148,10 @@ class getDouBanMovieInfo
         $pattern = '/<span property="v:initialReleaseDate" content=\".*\">(.*)<\/span>/isU';
 
         if (preg_match_all($pattern, $this->resData, $res)) {
-            $year = substr($res[1][0], 0, 10);
+            $year = $res[1][0];
+            if (preg_match('/\(/', $year)) {
+                $year = strchr($year, '(', true);
+            }
             return $year;
         }
     }

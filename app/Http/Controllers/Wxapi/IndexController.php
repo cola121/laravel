@@ -16,12 +16,12 @@ class IndexController extends Controller
     public function test(Request $request) {
         set_time_limit(0);
 
-        $purpose = MultiPurpose::where('purpose', 'saveStart')->first();
-        $startNum = $purpose->num_a;
-        $purpose->num_a = 299 + 10;
-        $purpose->update(['num_a' => 299 + 10]);
-        var_dump($startNum);
-
+        $url = 'https://movie.douban.com/subject/25980443';
+        //$url = 'https://movie.douban.com/subject/20438962';
+        $info = new getDouBanMovieInfo($url);
+        $movies = $info->getMovieYear();
+        var_dump($movies);
+        var_dump(strtotime($movies));
         //$this->save250(0);
       //  $this->saveMovies(20);
 //        $result = Actors::where('db_id', 10023)->get();
@@ -158,14 +158,14 @@ class IndexController extends Controller
             ]);
 
             $images = $info->getMovieImgs();
-            if (count($images) > 0) {
-                foreach ($images as $row) {
-                    $vImage = new VideoImage();
-                    $vImage->image_name = $row;
-                    $vImage->video_id = $id;
-                    $vImage->save();
-                }
-            }
+//            if (count($images) > 0) {
+//                foreach ($images as $row) {
+//                    $vImage = new VideoImage();
+//                    $vImage->image_name = $row;
+//                    $vImage->video_id = $id;
+//                    $vImage->save();
+//                }
+//            }
 
         }
 

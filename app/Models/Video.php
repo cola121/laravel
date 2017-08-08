@@ -20,4 +20,9 @@ class Video extends Model
     {
         return $this->hasMany('App\Models\VideoImage', 'video_id');
     }
+
+    public function getTvRecomment()
+    {
+        return $this->where('channel', 'tv')->limit(10)->orderBy('year', 'desc')->get();
+    }
 }

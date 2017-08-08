@@ -125,53 +125,56 @@ class SaveMovie extends Command
 
     public function updateInfo ()
     {
-        $purpose = MultiPurpose::where('purpose', 'saveStart')->first();
-        $startNum = $purpose->num_a;
+
+        //$purpose = MultiPurpose::where('purpose', 'saveStart')->first();
+        //$startNum = $purpose->num_a;
         $allVideo = Video::all()->count();
-        if ($startNum < $allVideo) {
-            $hasFail = false;
-            $next = $startNum + 20 > $allVideo ? $allVideo : $startNum + 20;
-            $videos = Video::whereBetween('video_id', [$startNum, $next])->get();
-            foreach ($videos as $video)
-            {
-                $dbID = $video->db_id;
-                $id = $video->video_id;echo "$id"."<br>";
-                $url = 'https://api.douban.com/v2/movie/subject/'.$dbID;
-                $result = CommonUtils::requestUrl($url);
-                $result = json_decode($result, true);
-                if (!isset($result['code'])) {
-                    $purpose->update(['num_a' => $next]);
-                    $video->countries = $this->arrToStr($result['countries']);
-                    $video->summary = $result['summary'];
-                    $video->aka = $this->arrToStr($result['aka']);
-                    $video->actors  = $this->arrToStr($result['casts'], 'id'); //演员
-                    $video->directors  = $this->arrToStr($result['directors'], 'id'); //导演
-                    $video->types  = $this->returnTypes($result['genres']); //类型
-                    $video->save();
-                    $this->saveActor($result['casts'], 'actor');
-                    $this->saveActor($result['directors'], 'director');
-                } else {
-                    $multi = new MultiPurpose();
-                    $multi->purpose = 'Updatelog';
-                    $multi->str_a = $result['msg'];
-                    $multi->num_a = $result['code'];
-                    $multi->num_b = $startNum;
-                    $multi->num_c = $id;
-                    $multi->save();
-                    $hasFail = true;
-                    if ($result['code'] = 112) {
-                        break;
-                    }
-                }
-            }
+        $this->updateInfo2($allVideo);
 
-            if ($hasFail) {
-                $this->updateInfo2($allVideo);
-            }
-
-        } else {
-            $this->updateInfo2($allVideo);
-        }
+//        if ($startNum < $allVideo) {
+//            $hasFail = false;
+//            $next = $startNum + 20 > $allVideo ? $allVideo : $startNum + 20;
+//            $videos = Video::whereBetween('video_id', [$startNum, $next])->get();
+//            foreach ($videos as $video)
+//            {
+//                $dbID = $video->db_id;
+//                $id = $video->video_id;echo "$id"."<br>";
+//                $url = 'https://api.douban.com/v2/movie/subject/'.$dbID;
+//                $result = CommonUtils::requestUrl($url);
+//                $result = json_decode($result, true);
+//                if (!isset($result['code'])) {
+//                    $purpose->update(['num_a' => $next]);
+//                    $video->countries = $this->arrToStr($result['countries']);
+//                    $video->summary = $result['summary'];
+//                    $video->aka = $this->arrToStr($result['aka']);
+//                    $video->actors  = $this->arrToStr($result['casts'], 'id'); //演员
+//                    $video->directors  = $this->arrToStr($result['directors'], 'id'); //导演
+//                    $video->types  = $this->returnTypes($result['genres']); //类型
+//                    $video->save();
+//                    $this->saveActor($result['casts'], 'actor');
+//                    $this->saveActor($result['directors'], 'director');
+//                } else {
+//                    $multi = new MultiPurpose();
+//                    $multi->purpose = 'Updatelog';
+//                    $multi->str_a = $result['msg'];
+//                    $multi->num_a = $result['code'];
+//                    $multi->num_b = $startNum;
+//                    $multi->num_c = $id;
+//                    $multi->save();
+//                    $hasFail = true;
+//                    if ($result['code'] = 112) {
+//                        break;
+//                    }
+//                }
+//            }
+//
+//            if ($hasFail) {
+//                $this->updateInfo2($allVideo);
+//            }
+//
+//        } else {
+//            $this->updateInfo2($allVideo);
+//        }
     }
 
     public function updateInfo2($allVideo)
@@ -187,12 +190,7 @@ class SaveMovie extends Command
                 $url = 'https://movie.douban.com/subject/'.$dbID;
                 $info = new getDouBanMovieInfo($url);
                 $movies = $info->getMovieYear();
-                var_dump($info);
-                $multi = new MultiPurpose();
-                $multi->purpose = 'SaveImage';
-                $multi->num_a = $video->video_id;
-                $multi->str_a = $info->getMovieYear() ? $info->getMovieYear() : 'false';
-                $multi->save();
+                var_dump($id,$movies);
                 if ($info->getMovieYear()) {
                     $video->update([
                         'year' => strtotime($info->getMovieYear()),
@@ -200,7 +198,7 @@ class SaveMovie extends Command
                     ]);
                     $purposeb->update(['num_a' => $nextb]);
                     $images = $info->getMovieImgs();
-                    if (count($images) > 0) {
+                    if (count($images) > 0 && $startNumb > 800) {
                         foreach ($images as $row) {
                             $vImage = new VideoImage();
                             $vImage->image_name = $row;

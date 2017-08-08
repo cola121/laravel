@@ -28,7 +28,23 @@ class VideoIndexController extends Controller
             $videos[] = $video;
         }
 
-        FuncUtils::getSuccess($videos);
+        $video = new Video();
+        $list['videos'] = $videos;
+        $result = $video->getTvRecomment();
+        foreach ($result as $row) {
+            $tv['title'] = $row->title;
+            $tv['title_en'] = $row->title_en;
+            $tv['year'] = date('Y-m-d', $row->year);
+            $tv['points'] = $row->points;
+            $tv['types'] = VideoTypes::returnTypeArrValue($row->types);
+            $tv['pic']['small'] = $row->pic_small;
+            $tv['pic']['medium'] = $row->pic_medium;
+            $tv['pic']['large'] = $row->pic_large;
+            $tvs[] = $tv;
+        }
+        $list['tvs'] = $tvs;
+
+        FuncUtils::getSuccess($list);
     }
 
     public function arrToStr($arr, $key='')

@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Video;
 use App\Models\Actors;
-use App\Lib\CommonUtils;
 use App\Lib\VideoTypes;
 use App\Lib\FuncUtils;
 
 class VideoInfoController extends Controller
 {
 
-    /**获取资源详情
+    /**鑾峰彇璧勬簮璇︽儏
      * @param Request $request
      * @param $id video_id
      */
     public function index(Request $request, $id)
     {
 
+        $video = array();
         $result = Video::find($id);
         $video['title'] = $result->title;
         $video['title_en'] = $result->title_en;
@@ -28,50 +28,40 @@ class VideoInfoController extends Controller
         $video['points'] = $result->points;
         $video['types'] = VideoTypes::returnTypeArrValue($result->types);
         $video['summary'] = $result->summary;
+        $video['aks'] = $result->aka;
         $video['pic']['small'] = $result->pic_small;
         $video['pic']['medium'] = $result->pic_medium;
         $video['pic']['large'] = $result->pic_large;
         $video['images'] = [];
         $images = Video::find($id)->getVideoImages;
         foreach ($images as $row) {
-            $video['images'][] = $row->image_name;
+            $video['images']['small'][] = VideoImage::SMALL_IMAGE_LINK.$row->image_name;
+            $video['images']['big'][] = VideoImage::BIG_IMAGE_LINK.$row->image_name;
         }
-       // $actors = Actors::find([1054450,1002676,1031848,1031912]);
+        //婕斿憳
+        $video['actors']= [];
         $actor = new Actors();
-        $actors = $actor->returnActorName($result->actors);
-        echo "<pre>";print_r($actors);
-//        $videos[] = $video;
-//
-//        FuncUtils::getSuccess($videos);
-    }
-
-    public function arrToStr($arr, $key='')
-    {
-        $str = '';
-        $i = 0;
-        foreach ($arr as $row) {
-            if ($key) {
-                $str .= $i == 0 ? $row[$key] : ';'.$row[$key];
-            } else {
-                $str .= $i == 0 ? $row : ';'.$row;
-            }
-            $i ++ ;
+        $res = $actor->returnActorName($result->actors);
+        foreach ($res as $val) {
+            $actorInfo['name'] = $val->name;
+            $actorInfo['avatar']['small'] = $val->avatar_small;
+            $actorInfo['avatar']['medium'] = $val->avatar_medium;
+            $actorInfo['avatar']['large'] = $val->avatar_large;
+            $video['actors'][] = $actorInfo;
+        }
+        //瀵兼紨
+        $video['directors']= [];
+        $director = new Actors();
+        $res = $director->returnActorName($result->directors);
+        foreach ($res as $val) {
+            $directorInfo['name'] = $val->name;
+            $directorInfo['avatar']['small'] = $val->avatar_small;
+            $directorInfo['avatar']['medium'] = $val->avatar_medium;
+            $directorInfo['avatar']['large'] = $val->avatar_large;
+            $video['directors'][] = $directorInfo;
         }
 
-        return $str;
+        FuncUtils::getSuccess($video);
     }
 
-    public function returnTypes($arr)
-    {
-        $str = '';
-        $i = 0;
-        foreach ($arr as $row) {
-            if ($type = VideoTypes::returnTypeKey($row)) {
-                $str .= $i == 0 ? $type : ';'.$type;
-            }
-            $i ++ ;
-        }
-        return $str;
-
-    }
 }

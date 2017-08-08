@@ -13,17 +13,13 @@ class Actors extends Model
     protected $primaryKey = 'actor_id';
     protected $fillable = ['u_type'];
 
+
     public function returnActorName($name)
     {
-        $name = explode(';', $name);
-
-        if (is_array($name)) {
-            $names = implode(',', $name);
-        } else {
-            $names = $name;
+        if ($name) {
+            $name = explode(';', $name);
+            return $this->whereIn('db_id', $name)->get();
         }
-var_dump($names);
-        return $this->find([$names]);
 
     }
 }
