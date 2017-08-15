@@ -13,15 +13,20 @@ use App\Lib\VideoTypes;
 use App\Lib\getDouBanMovieInfo;
 class IndexController extends Controller
 {
-    public function test(Request $request) {
-        set_time_limit(0);
+    public function test() {
+        echo "start";
+        $url = 'https://api.inwotalk.com/biaoqingbao/pic/list?cate=1&start&limit=15';
 
-        $url = 'https://movie.douban.com/subject/25980443';
-        //$url = 'https://movie.douban.com/subject/20438962';
-        $info = new getDouBanMovieInfo($url);
-        $movies = $info->getMovieYear();
-        var_dump($movies);
-        var_dump(strtotime($movies));
+        $result = CommonUtils::requestUrl($url);
+        echo "<pre>";print_r(json_decode($result, true));exit;
+//        set_time_limit(0);
+//
+//        $url = 'https://movie.douban.com/subject/25980443';
+//        //$url = 'https://movie.douban.com/subject/20438962';
+//        $info = new getDouBanMovieInfo($url);
+//        $movies = $info->getMovieYear();
+//        var_dump($movies);
+//        var_dump(strtotime($movies));
         //$this->save250(0);
       //  $this->saveMovies(20);
 //        $result = Actors::where('db_id', 10023)->get();
