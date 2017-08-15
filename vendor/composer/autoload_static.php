@@ -272,6 +272,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\SaveEmoji' => __DIR__ . '/../..' . '/app/Console/Commands/SaveEmoji.php',
         'App\\Console\\Commands\\SaveMovie' => __DIR__ . '/../..' . '/app/Console/Commands/SaveMovie.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -283,6 +284,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
         'App\\Http\\Controllers\\Wxapi\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/IndexController.php',
         'App\\Http\\Controllers\\Wxapi\\VideoIndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/VideoIndexController.php',
+        'App\\Http\\Controllers\\Wxapi\\VideoInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/VideoInfoController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -293,6 +295,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Lib\\VideoTypes' => __DIR__ . '/../..' . '/app/Lib/VideoTypes.php',
         'App\\Lib\\getDouBanMovieInfo' => __DIR__ . '/../..' . '/app/Lib/getDouBanMovieInfo.class.php',
         'App\\Models\\Actors' => __DIR__ . '/../..' . '/app/Models/Actors.php',
+        'App\\Models\\Emoticon' => __DIR__ . '/../..' . '/app/Models/Emoticon.php',
         'App\\Models\\MultiPurpose' => __DIR__ . '/../..' . '/app/Models/MultiPurpose.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
         'App\\Models\\VideoImage' => __DIR__ . '/../..' . '/app/Models/VideoImage.php',

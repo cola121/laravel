@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\SaveEmoji' => $baseDir . '/app/Console/Commands/SaveEmoji.php',
     'App\\Console\\Commands\\SaveMovie' => $baseDir . '/app/Console/Commands/SaveMovie.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -17,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
     'App\\Http\\Controllers\\Wxapi\\IndexController' => $baseDir . '/app/Http/Controllers/Wxapi/IndexController.php',
     'App\\Http\\Controllers\\Wxapi\\VideoIndexController' => $baseDir . '/app/Http/Controllers/Wxapi/VideoIndexController.php',
+    'App\\Http\\Controllers\\Wxapi\\VideoInfoController' => $baseDir . '/app/Http/Controllers/Wxapi/VideoInfoController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
     'App\\Http\\Middleware\\RedirectIfAuthenticated' => $baseDir . '/app/Http/Middleware/RedirectIfAuthenticated.php',
@@ -27,6 +29,7 @@ return array(
     'App\\Lib\\VideoTypes' => $baseDir . '/app/Lib/VideoTypes.php',
     'App\\Lib\\getDouBanMovieInfo' => $baseDir . '/app/Lib/getDouBanMovieInfo.class.php',
     'App\\Models\\Actors' => $baseDir . '/app/Models/Actors.php',
+    'App\\Models\\Emoticon' => $baseDir . '/app/Models/Emoticon.php',
     'App\\Models\\MultiPurpose' => $baseDir . '/app/Models/MultiPurpose.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
     'App\\Models\\VideoImage' => $baseDir . '/app/Models/VideoImage.php',

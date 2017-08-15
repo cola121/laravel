@@ -6,6 +6,7 @@ use App\Models\VideoImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Video;
+use App\Models\Emoticon;
 use App\Models\Actors;
 use App\Models\MultiPurpose;
 use App\Lib\CommonUtils;
@@ -18,7 +19,14 @@ class IndexController extends Controller
         $url = 'https://api.inwotalk.com/biaoqingbao/pic/list?cate=1&start&limit=15';
 
         $result = CommonUtils::requestUrl($url);
-        echo "<pre>";print_r(json_decode($result, true));exit;
+        $result = json_decode($result, true);
+
+       // echo "<pre>";
+        foreach ($result['data'] as $row) {
+            $emoji = new Emoticon();
+            $emoji->saveEmoji($row);
+        }
+        //echo "<pre>";print_r(json_decode($result, true));exit;
 //        set_time_limit(0);
 //
 //        $url = 'https://movie.douban.com/subject/25980443';
