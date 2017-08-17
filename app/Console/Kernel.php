@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'App\Console\Commands\SaveEmoji2',
+        'App\Console\Commands\SaveEmoji',
     ];
 
     /**
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('SaveEmoji')->everyFiveMinutes();
+        // $schedule->command('SaveEmoji')->everyThirtyMinutes();
     }
 
     /**

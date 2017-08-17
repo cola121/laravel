@@ -15,11 +15,12 @@ class Emoticon extends Model
 
     public function saveEmoji($data)
     {
-        $this->title = $data['title'];
+        //$this->title = $data['title'];
         $this->text = $data['text'];
-        $this->full_image = $data['full_image'];
+      //  $this->full_image = $data['full_image'];
         $this->raw_image = $data['raw_image'];
         $this->category = $data['category'];
+        $this->edit_type = $data['edit_type'];
         $this->save();
     }
 
