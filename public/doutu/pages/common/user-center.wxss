@@ -1,0 +1,83 @@
+
+/*登录页面样式*/
+.login-logo { margin-top:120rpx; text-align: center;}
+.login-logo image{ width:346rpx;height:110rpx;}
+.login-main{ margin-top:120rpx;}
+.margin-top-60{ margin-top:60rpx;}
+.margin-top-40{ margin-top:40rpx;}
+.margin-top-50{ margin-top:50rpx;}
+.dflex{ flex:1;}
+.w380{ width:380rpx;}
+.w480{ width:480rpx;}
+.grey{color:#a3a3a3;}
+.witerbg{ background: #fff;}
+.w200{ width:200rpx;}
+.border-t{ border-top:1px solid #e5e5e5;}
+.border-b{ border-bottom:1px solid #e5e5e5;}
+.dashed-top{ border-top:1px dashed #e5e5e5;}
+.border{ border:1px solid #e5e5e5;}
+.p100{ width:100%;padding:10rpx 0 0 10rpx;}
+.letter-space{ letter-spacing: 64rpx;}
+.letter-space-Q{letter-spacing: 75rpx;}
+.flex-right{ justify-content: flex-end;}
+.login-main .login-main-inputs{ width:640rpx; margin-left: auto; margin-right:auto;}
+.login-main .login-main-inputs .login-line{ border-bottom:1px solid #e5e5e5; display: flex; display: -webkit-flex; }
+.login-main .login-main-inputs .login-line .u-icon-login-phone{  margin-top:8rpx;}
+.login-main .login-main-inputs .login-line .login-input{  flex:1; width:500rpx;border:none;padding-left:10rpx; }
+.login-main .login-main-inputs .login-line .login-input-s{  flex:1; width:260rpx;border:none;padding-left:10rpx; }
+.login-main .login-main-inputs .login-line .u-icon-login-del{margin-top:8rpx;}
+.login-main .login-main-inputs .login-line .u-icon-login-psw{  margin-top:8rpx;}
+.login-main .login-main-inputs .login-line .u-icon-login-mark{  margin-top:8rpx;}
+.login-main .login-main-inputs .login-line .u-icon-login-close-eye{  margin-top:8rpx;}
+.login-main .login-main-inputs .login-line .u-icon-login-open-eye{  margin-top:8rpx;}
+.go-register{ margin-top:200rpx;}
+
+/*用户中心页面样式*/
+.user-info .navigator {white-space:nowrap;text-overflow:ellipsis;overflow:hidden;}
+.navigator-box {opacity: 0; position: relative; background-color: #FFFFFF; line-height: 1.41176471; font-size: 34rpx;transform: translateY(-50%);  transition: .3s;}
+.navigator-box-show {  opacity: 1;  transform: translateY(0);}
+.navigator {padding: 30rpx 30rpx;  position: relative;  display: flex;align-items: center;border-bottom: 1rpx solid #e5e5e5;}
+.navigator:before {content: " "; position: absolute;left: 0rpx;top: 0; right: 0rpx; height: 1px; color: #e5e5e5;}
+.navigator:first-child:before {display: none;}
+.navigator-text { flex: 1;font-size: 32rpx}
+.navigator-arrow {padding-right: 26rpx;position: relative;}
+.navigator-arrow:after {content: " ";display: inline-block;height: 18rpx;width: 18rpx;border-width: 2rpx 2rpx 0 0; border-color: #aaaaaa;  border-style: solid;transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);position: absolute;top: 50%;margin-top: -8rpx;right: 16rpx;}
+.hot-icon{ background: #e4442c;color:#FFFFFF;border-radius: 50rpx;padding:0rpx 20rpx; font-size:28rpx;}
+.navigator-hover {background-color:rgba(0,0, 0, 0.16);opacity:0.7;}
+.user-top{display:inline-block; width: 100%; height:160rpx; background:#fff url(https://wxapi.goodjobs.cn/images/userbg.png?=123) no-repeat;  background-size:cover;}
+.user-top .img-contant{ margin-top:30rpx;width:110rpx; height: 110rpx; background:#efefef;border-radius:70rpx;margin-left:auto;margin-right:auto; overflow: hidden; text-align: center; padding:8rpx;}
+.user-top .img-contant .user-img{width:100%;height:100%; overflow:hidden;border-radius: 50%}
+.pay-image{ width:172rpx;height:46rpx;}
+
+.search-block{background:#efefef; height:95rpx; padding-top:25rpx; border-bottom:1px solid #E5E5E5;}
+.search-block .search-form{width:650rpx; height:70rpx; background:#fff; border-radius: 35rpx; margin-left:auto; margin-right:auto;}
+.search-block .search-form .u-icon-32{float:left; margin:18rpx 10rpx 0 36rpx;}
+.search-block .search-form .search-input{float:left; width: 530rpx; height: 70rpx; font-size:30rpx;}
+
+/*简历预览*/
+.resume-box{}
+.resume-box .box-title{ border-bottom:1px solid #e5e5e5; padding-top:16rpx; padding-bottom:16rpx; display: flex; font-size:36rpx; align-items:center;}
+.resume-box .box-title .box-title-txt{ flex: 1;}
+.box{ padding:10rpx 0;}
+.box .box-txt{ width:170rpx; overflow: hidden;white-space: nowrap;}
+.word-break{ flex-wrap:wrap }
+.flex-1{ flex:1;}
+.flex-left{ justify-content: flex-start;}
+
+.view-del{padding:0 0 0 100rpx;}
+.resume-del{
+    width:25rpx;
+    height:33rpx;
+    background:url(https://wxapi.goodjobs.cn/images/del.jpg) no-repeat 0 0;
+    background-size:cover;
+}
+label:before{padding-left:10rpx;color:red;content:"*"}
+
+.save-btn {
+    margin: 20rpx 0;
+    padding: 30rpx;
+}
+
+.border-none {
+    border: none!important;
+}

@@ -234,6 +234,12 @@ class SaveEmoji extends Command
         112 => '30',
     ];
 
+    const url = [
+        'http://service.magicemoticon.cccwei.com/topic/list?page=1&item_count=3',//类别列表
+        'http://service.magicemoticon.cccwei.com/topic/detail?topic_id=162&item_count=300',//类别详细
+        'http://service.magicemoticon.cccwei.com/template/list?item_count=15&page=2',//模板
+    ];
+
     /**
      * The name and signature of the console command.
      *

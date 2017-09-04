@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\DownloadEmoji' => $baseDir . '/app/Console/Commands/DownloadEmoji.php',
     'App\\Console\\Commands\\SaveEmoji' => $baseDir . '/app/Console/Commands/SaveEmoji.php',
     'App\\Console\\Commands\\SaveMovie' => $baseDir . '/app/Console/Commands/SaveMovie.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -15,7 +16,10 @@ return array(
     'App\\Http\\Controllers\\Auth\\RegisterController' => $baseDir . '/app/Http/Controllers/Auth/RegisterController.php',
     'App\\Http\\Controllers\\Auth\\ResetPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ResetPasswordController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\Emoji\\VIndexController' => $baseDir . '/app/Http/Controllers/Emoji/IndexController.php',
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
+    'App\\Http\\Controllers\\Wxapi\\EmojiMake' => $baseDir . '/app/Http/Controllers/Wxapi/EmojiMake.php',
+    'App\\Http\\Controllers\\Wxapi\\EmojiMakeController' => $baseDir . '/app/Http/Controllers/Wxapi/EmojiMakeController.php',
     'App\\Http\\Controllers\\Wxapi\\IndexController' => $baseDir . '/app/Http/Controllers/Wxapi/IndexController.php',
     'App\\Http\\Controllers\\Wxapi\\VideoIndexController' => $baseDir . '/app/Http/Controllers/Wxapi/VideoIndexController.php',
     'App\\Http\\Controllers\\Wxapi\\VideoInfoController' => $baseDir . '/app/Http/Controllers/Wxapi/VideoInfoController.php',
@@ -27,9 +31,11 @@ return array(
     'App\\Lib\\CommonUtils' => $baseDir . '/app/Lib/CommonUtils.php',
     'App\\Lib\\FuncUtils' => $baseDir . '/app/Lib/FuncUtils.php',
     'App\\Lib\\VideoTypes' => $baseDir . '/app/Lib/VideoTypes.php',
+    'App\\Lib\\Websocket' => $baseDir . '/app/Lib/Websocket.php',
     'App\\Lib\\getDouBanMovieInfo' => $baseDir . '/app/Lib/getDouBanMovieInfo.class.php',
     'App\\Models\\Actors' => $baseDir . '/app/Models/Actors.php',
     'App\\Models\\Emoticon' => $baseDir . '/app/Models/Emoticon.php',
+    'App\\Models\\EmoticonType' => $baseDir . '/app/Models/EmoticonType.php',
     'App\\Models\\MultiPurpose' => $baseDir . '/app/Models/MultiPurpose.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
     'App\\Models\\VideoImage' => $baseDir . '/app/Models/VideoImage.php',

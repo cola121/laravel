@@ -1,0 +1,51 @@
+/* pages/selector/selector.wxss */
+@import "../common/user-center.wxss";
+page {background-color: #efefef;height: 100%;font-size: 32rpx;line-height: 1.6;}
+.selector-top {
+    display: flex;
+    justify-content:space-between;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    height: 100rpx;
+    width: 100%;
+    background-color: #efefef;
+}
+
+.selector-text {
+    height: 100rpx;
+    line-height: 100rpx;
+    padding-left: 40rpx;
+    flex-grow: 6;
+}
+
+.selector-button {
+    flex-grow: 1;
+}
+
+.selector-enter {
+    background-color:#2782D7;
+    color: #FFF;
+}
+
+.user-info {
+    margin-top: 100rpx;
+}
+
+.level-two-block {
+    background-color:#F7F7F7;
+}
+
+.level-two-checked {
+    background-color: #F3F3F3 !important;
+}
+
+.select-checked-child {
+    display: none;
+}
+
+.select-checked-child-checked {
+    display: inline-block;
+    color: #999
+}

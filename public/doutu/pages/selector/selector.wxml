@@ -1,0 +1,81 @@
+<!--pages/usercenter/resume-integrity/index.wxml-->
+
+<view class="selector-top">
+  <view class="selector-text">
+    最多{{num}}项，已选{{currentNum}}项
+  </view>
+  <view class="selector-button">
+    <button class="selector-enter" size="mini" bindtap="bindEnter">确定</button>
+  </view>
+</view>
+
+<view class="witerbg">
+  <view class="user-info">
+    <!-- 一级选择 -->
+    <block wx:if="{{tree[0] == 'single'}}">
+      <view>
+        <block wx:for="{{levelTwo}}" wx:key="id" wx:for-index="twoIndex" wx:for-item="twoItem">
+          <view bindtap="itemTwoTab" class="navigator level-two-block  {{twoItem.checked ? 'level-two-checked' : ''}}" data-level-two-id="{{twoItem.id}}" data-level-two-name="{{twoItem.name}}" data-level-one-id="0" data-level-one-name="null">
+            <view class="navigator-text padding-left-15">{{twoItem.name}}</view>
+            <block wx-if="{{num > 1}}">
+              <view>
+                <checkbox checked="{{twoItem.checked}}" value="1" color="#0077ed" />
+              </view>
+            </block>
+            <block wx:else>
+              <image src="/resources/selected.png" style="max-width: 48rpx;max-height: 48rpx" class="select-checked-child {{twoItem.checked ? 'select-checked-child-checked' : ''}}"></image>
+            </block>
+          </view>
+        </block>
+      </view>
+    </block>
+
+    <block wx:else>
+      <block wx:for="{{levelOne}}" wx:key="id" wx:for-index="oneIndex" wx:for-item="oneItem">
+        <view>
+          <view class="navigator border-t" bindtap="itemOneTab" data-id="{{oneItem.id}}">
+            <view class="navigator-text padding-left-15">{{oneItem.name}}</view>
+            <view class="grey padding-right">
+              <!-- 已选项 -->
+            </view>
+            <view class="u-icon-32 u-icon-user-down"></view>
+          </view>
+          <view style="display:{{oneItem.open ? 'block' : 'none'}}">
+            <block wx:if="{{levelTwo[oneItem.id]}}">
+
+              <!-- 不限 -->
+              <block wx:if="{{oneSelect}}">
+                <view bindtap="selectOneTab" class="navigator level-two-block {{oneItem.checked ? 'level-two-checked' : ''}}" data-level-two-id="{{oneItem.id}}" data-level-two-name="{{oneItem.name}}" data-level-one-id="{{oneItem.id}}" data-level-one-name="{{oneItem.name}}">
+                  <view class="navigator-text padding-left-15 select-checked-parent">不限</view>
+                  <block wx-if="{{num > 1}}">
+                    <view>
+                      <checkbox checked="{{oneItem.checked}}" value="1" color="#0077ed" />
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <image src="/resources/selected.png" style="max-width: 48rpx;max-height: 48rpx" class="select-checked-child {{oneItem.checked ? 'select-checked-child-checked' : ''}}"></image>
+                  </block>
+                </view>
+              </block>
+              <!-- 不限 -->
+
+              <block wx:for="{{levelTwo[oneItem.id]}}" wx:key="id" wx:for-index="twoIndex" wx:for-item="twoItem">
+                <view bindtap="itemTwoTab" class="navigator level-two-block {{twoItem.checked ? 'level-two-checked' : ''}}" data-level-two-id="{{twoItem.id}}" data-level-two-name="{{twoItem.name}}" data-level-one-id="{{oneItem.id}}" data-level-one-name="{{oneItem.name}}">
+                  <view class="navigator-text padding-left-15 select-checked-parent">{{twoItem.name}}</view>
+                  <block wx-if="{{num > 1}}">
+                    <view>
+                      <checkbox checked="{{twoItem.checked}}" value="1" color="#0077ed" />
+                    </view>
+                  </block>
+                  <block wx:else>
+                    <image src="/resources/selected.png" style="max-width: 48rpx;max-height: 48rpx" class="select-checked-child {{twoItem.checked ? 'select-checked-child-checked' : ''}}"></image>
+                  </block>
+                </view>
+              </block>
+            </block>
+          </view>
+        </view>
+      </block>
+    </block>
+  </view>
+</view>

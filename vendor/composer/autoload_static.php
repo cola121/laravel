@@ -272,6 +272,7 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\DownloadEmoji' => __DIR__ . '/../..' . '/app/Console/Commands/DownloadEmoji.php',
         'App\\Console\\Commands\\SaveEmoji' => __DIR__ . '/../..' . '/app/Console/Commands/SaveEmoji.php',
         'App\\Console\\Commands\\SaveMovie' => __DIR__ . '/../..' . '/app/Console/Commands/SaveMovie.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -281,7 +282,10 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\Emoji\\VIndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Emoji/IndexController.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',
+        'App\\Http\\Controllers\\Wxapi\\EmojiMake' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/EmojiMake.php',
+        'App\\Http\\Controllers\\Wxapi\\EmojiMakeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/EmojiMakeController.php',
         'App\\Http\\Controllers\\Wxapi\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/IndexController.php',
         'App\\Http\\Controllers\\Wxapi\\VideoIndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/VideoIndexController.php',
         'App\\Http\\Controllers\\Wxapi\\VideoInfoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Wxapi/VideoInfoController.php',
@@ -293,9 +297,11 @@ class ComposerStaticInitb92e0352a60c9d9becbd0dff08bdb51d
         'App\\Lib\\CommonUtils' => __DIR__ . '/../..' . '/app/Lib/CommonUtils.php',
         'App\\Lib\\FuncUtils' => __DIR__ . '/../..' . '/app/Lib/FuncUtils.php',
         'App\\Lib\\VideoTypes' => __DIR__ . '/../..' . '/app/Lib/VideoTypes.php',
+        'App\\Lib\\Websocket' => __DIR__ . '/../..' . '/app/Lib/Websocket.php',
         'App\\Lib\\getDouBanMovieInfo' => __DIR__ . '/../..' . '/app/Lib/getDouBanMovieInfo.class.php',
         'App\\Models\\Actors' => __DIR__ . '/../..' . '/app/Models/Actors.php',
         'App\\Models\\Emoticon' => __DIR__ . '/../..' . '/app/Models/Emoticon.php',
+        'App\\Models\\EmoticonType' => __DIR__ . '/../..' . '/app/Models/EmoticonType.php',
         'App\\Models\\MultiPurpose' => __DIR__ . '/../..' . '/app/Models/MultiPurpose.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
         'App\\Models\\VideoImage' => __DIR__ . '/../..' . '/app/Models/VideoImage.php',

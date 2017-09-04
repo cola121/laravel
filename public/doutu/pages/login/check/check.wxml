@@ -1,0 +1,26 @@
+<!--pages/login/password/password.wxml-->
+<view>
+  <block wx:if="{{type != 'update'}}">
+    <view class="login-logo">
+      <image src="/resources/logo.png"></image>
+    </view>
+  </block>
+  <view class="login-main">
+    <view class="login-main-inputs">
+      <view class="login-line">
+        <view class="u-icon-32 u-icon-login-phone"></view>
+        <input type="number" data-name="mobile" value="{{formData.mobile}}" bindinput="bindChange" class="login-input" placeholder="请输入手机号码" />
+        <view catchtap="trimUsername" class="u-icon-32 u-icon-login-del"></view>
+      </view>
+      <view class="login-line margin-top-40">
+        <view class="u-icon-32 u-icon-login-mark"></view>
+        <input type="number" data-name="verCode" bindinput="bindChange" class="login-input-s" placeholder="请输入验证码" />
+        <button type="primary" disabled="{{checkCode.status}}" bindtap="sendCheckCode" class="" size="mini" style="margin-top:0; margin-bottom:0; top:-20rpx;">{{checkCode.text}}</button>
+      </view>
+
+      <view class="btn-area" id="buttonContainer">
+        <button type="primary" bindtap="mobileCheck" class="">{{type == 'update' ? '修改' : '绑定'}}</button>
+      </view>
+    </view>
+  </view>
+</view>

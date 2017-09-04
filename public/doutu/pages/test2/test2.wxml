@@ -1,0 +1,61 @@
+<view bindtap="openDialog">
+  选择{{provinceName}}--{{provinceId}} {{cityName}}-{{cityId}} {{countyName}}-{{countyId}}</view>
+
+<view>
+  <view id="pop-pg" bindtap="closeDialog" hidden="{{isShow ? false : true}}"></view>
+
+  <view class="{{isShow ? 'animation-slider-up-enter' : 'animation-slider-up-leave'}}" id="pop-window-container">
+    <view class="select-title">
+      <text>所在地区</text>
+    </view>
+
+    <view class="select-bar">
+      <view>
+        <text class="{{current == 0 ? 'current-color' : 'other-color'}}">{{provinceName ? provinceName : '请选择'}}</text>
+        <text class="{{current == 1 ? 'current-color' : 'other-color'}}" wx:if="{{provinceName}}">{{cityName ? cityName : '请选择'}}</text>
+        <text class="{{current == 2 ? 'current-color' : 'other-color'}}" wx:if="{{countyList.length > 0 && countyName == ''}}">请选择</text>
+        <text class="{{current == 2 ? 'current-color' : 'other-color'}}" wx:if="{{countyName}}">{{countyName}}</text>
+      </view>
+    </view>
+
+    <view>
+      <!-- 选择省份 -->
+      <swiper current="{{current}}" bindchange="swiperChange">
+        <swiper-item>
+          <scroll-view scroll-y class="swiper-scroll-height">
+            <block wx:for="{{provinceList}}" wx:key="*this">
+              <view data-code="{{item.id}}" data-name="{{item.name}}" bindtap="chooseProvince">
+                <text>{{item.name}}--{{item.id}}</text>
+              </view>
+            </block>
+          </scroll-view>
+        </swiper-item>
+
+        <!-- 选择城市-->
+        <swiper-item wx:if="{{cityList.length > 0}}">
+          <scroll-view scroll-y class="swiper-scroll-height">
+            <block wx:for="{{cityList}}" wx:key="*this">
+              <view data-code="{{item.id}}" data-name="{{item.name}}" bindtap="chooseCity">
+                <text>{{item.name}}--{{item.id}}</text>
+              </view>
+            </block>
+          </scroll-view>
+        </swiper-item>
+
+        <!-- 选择区域 -->
+        <swiper-item wx:if="{{countyList.length > 0}}">
+          <scroll-view scroll-y class="swiper-scroll-height">
+            <block wx:for="{{countyList}}" wx:key="*this">
+              <view data-code="{{item.id}}" data-name="{{item.name}}" bindtap="chooseCounty">
+                <text>{{item.name}}--{{item.id}}</text>
+              </view>
+            </block>
+          </scroll-view>
+        </swiper-item>
+
+      </swiper>
+    </view>
+
+  </view>
+
+</view>

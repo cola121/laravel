@@ -1,0 +1,3 @@
+/* pages/usercenter/index/index.wxss */
+@import "../../common/user-center.wxss";
+page {background-color: #efefef;height: 100%;font-size: 32rpx;line-height: 1.6;}

@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         'App\Console\Commands\SaveEmoji',
+        'App\Console\Commands\DownloadEmoji',
     ];
 
     /**
@@ -24,7 +25,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('SaveEmoji')->everyThirtyMinutes();
+         $schedule->command('DownloadEmoji')->everyMinute();
     }
 
     /**

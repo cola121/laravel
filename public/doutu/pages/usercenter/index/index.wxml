@@ -1,0 +1,49 @@
+<!--pages/usercenter/index/index.wxml-->
+<view class="witerbg">
+  <view class="user-top">
+    <view class="img-contant">
+      <image src="{{portrait}}" mode="aspectFill" bindtap="chooseimage" class="user-img"></image>
+    </view>
+  </view>
+  <view class="user-info">
+    <view class="navigator-box navigator-box-show">
+      <navigator class="navigator" url="{{url.cv}}">
+        <view class="u-icon-32 u-icon-user-resume u-icon-size"></view>
+        <view class="navigator-text padding-left-15">我的简历</view>
+        <view class="padding-right text-right {{cvStatusList.progressRate<=65?'orange':'grey'}} font28">完整度{{cvStatusList.progressRate}}%</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+      <navigator class="navigator" url="{{url.view}}">
+        <view class="u-icon-32 u-icon-user-view u-icon-size"></view>
+        <view class="navigator-text  padding-left-15">预览简历</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+      <view class="navigator" bindtap="bindUpdateResume">
+        <view class="u-icon-32 u-icon-user-flush u-icon-size"></view>
+        <view class="navigator-text  padding-left-15">更新简历</view>
+        <view class="padding-right text-right grey font28">{{updateTime}}</view>
+        <view style="padding-right:26rpx;position:relative;"></view>        
+      </view>
+      <!--<navigator class="navigator" url="../resume-top/index">
+        <view class="u-icon-32 u-icon-user-top"></view>
+        <view class="navigator-text padding-left-15">简历置顶</view>
+        <view class="margin-right text-right hot-icon">hot</view>
+        <view class="navigator-arrow"></view>
+      </navigator>-->
+      <navigator class="navigator" url="{{url.open}}">
+        <view class="u-icon-32 u-icon-user-lock u-icon-size"></view>
+        <view class="navigator-text  padding-left-15">公开程度</view>
+        <view class="padding-right text-right grey font28">{{cvStatusList.pubLevel}}</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+  </view>
+</view>
+<block wx:if="{{isLogin}}">
+  <view class="navigator-box navigator-box-show margin-top-15">
+    <view class="navigator border-t">
+      <view class="u-icon-32 u-icon-user-exit u-icon-size"></view>
+      <view class="navigator-text  padding-left-15" bindtap="logout">退出登录</view>
+    </view>
+  </view>
+</block>

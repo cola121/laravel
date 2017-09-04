@@ -1,0 +1,30 @@
+<!--pages/login/login/login.wxml-->
+<view>
+  <view class="login-logo"><image src="/resources/logo.png"></image></view>
+  <view class="login-main">
+    <view class="login-main-inputs">
+      <view class="login-line">
+         <view class="u-icon-32 u-icon-login-phone"></view>
+         <input type="text" class="login-input" value="{{username}}" bindinput="bindUsernameInput" placeholder="请输入用户名或手机号"/>
+         <view catchtap="trimUsername" class="u-icon-32 u-icon-login-del"></view>
+      </view>
+      <view class="login-line margin-top-60">
+        <view class="u-icon-32 u-icon-login-psw"></view>
+        <input type="text" password="{{showPassword}}" class="login-input" bindinput="bindPasswordInput" placeholder="请输入密码"/>
+        <view catchtap="showPassword" class="u-icon-32 {{eyeType}}"></view>
+      </view>
+      <view class="btn-area" id="buttonContainer">
+         <button type="primary" disabled="{{sendStatus}}" bindtap="login">登录</button>
+      </view>
+      <view class="margin-top display-flex grey">
+        <view class="dflex margin-left-15">
+        <navigator url="/pages/login/register/register" open-type="redirect">立即注册</navigator>
+        </view>
+        <view class="margin-right-15">
+        <navigator url="/pages/login/password/password">忘记密码</navigator>
+        </view>
+      </view>    
+    </view>
+    
+  </view>
+</view>

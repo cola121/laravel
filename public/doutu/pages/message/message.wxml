@@ -1,0 +1,29 @@
+<!--pages/message/message.wxml-->
+  <view class="user-info" style="margin-top:30rpx;padding:0">
+     <view class="navigator-box navigator-box-show">
+      <navigator class="display-flex list-nav" url="{{url.apply}}">
+         <view class="u-icon-48 u-icon-message-apply margin-top margin-right-15"></view>
+         <view class="navigator" style="border:none">
+         <view class="navigator-text">职位申请记录</view>
+         <view class="margin-right text-right record-num font28">{{mailCount}}</view>
+         <view class="navigator-arrow"></view>  
+         </view>  
+      </navigator>      
+       <navigator class="display-flex list-nav" url="{{url.invitation}}">
+         <view class="u-icon-48 u-icon-message-invite margin-top margin-right-15"></view>
+         <view class="navigator" style="border:none">
+           <view class="navigator-text">企业邀请</view>
+           <view class="margin-right text-right record-num font28">{{inviteCount}}</view>
+           <view class="navigator-arrow"></view>    
+         </view>
+      </navigator>  
+      <navigator class="display-flex list-nav" url="{{url.visit}}">
+         <view class="u-icon-48 u-icon-message-vhistory margin-top margin-right-15" style="width:43rpx;height:46rpx;"></view>
+         <view class="navigator" style="border:none">
+           <view class="navigator-text ">企业查看记录</view>
+           <view class="margin-right text-right record-num font28">{{viewHistoryCount}}</view>
+           <view class="navigator-arrow"></view> 
+        </view>
+      </navigator>  
+    </view>
+</view>

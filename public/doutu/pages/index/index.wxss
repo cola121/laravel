@@ -1,0 +1,6 @@
+@import "/pages/common/style.wxss";
+
+.u-icon-fast{ margin-top:6rpx;}
+.fixed{position:fixed;left:0px;width:100%;top:0px;}
+.weui-icon-search{margin-right:10rpx;}
+.f-list-content .company-logo{margin-top:10rpx;}

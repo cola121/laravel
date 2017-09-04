@@ -1,0 +1,34 @@
+<!--pages/login/register/register.wxml-->
+<view>
+  <view class="login-logo">
+    <image src="/resources/logo.png"></image>
+  </view>
+  <view class="login-main">
+    <view class="login-main-inputs">
+      <view class="login-line">
+        <view class="u-icon-32 u-icon-login-phone"></view>
+        <input type="number" class="login-input" value="{{formData.mobile}}" data-name="mobile" bindblur="bindMobileCheck" bindinput="bindMobileChange" placeholder="请输入手机号码" />
+        <view catchtap="trimUsername" class="u-icon-32 u-icon-login-del"></view>
+      </view>
+      <view class="login-line margin-top-40">
+        <view class="u-icon-32 u-icon-login-mark"></view>
+        <input type="number" data-name="smsCodeStr" bindinput="bindChange" class="login-input-s" placeholder="请输入验证码" />
+        <button disabled="{{checkCode.status}}" bindtap="sendCheckCode" type="primary" size="mini" style="margin-top:0; margin-bottom:0; top:-20rpx;">{{checkCode.text}}</button>
+      </view>
+      <view class="login-line margin-top-40">
+        <view class="u-icon-32 u-icon-login-psw"></view>
+        <input password="{{showPassword}}" type="text" class="login-input" data-name="passwd" bindinput="bindChange" placeholder="请输入密码" />
+        <view bindtap="showPassword" class="u-icon-32 {{eyeType}}"></view>
+      </view>
+      <view class="btn-area" id="buttonContainer">
+        <button type="primary" disabled="{{regStatus}}" bindtap="register">注册</button>
+      </view>
+      <view class="margin-top display-flex grey font24 padding-left-15" style="white-space:nowrap;">
+        注册即视为同意新安人才网<navigator style="color:#3781d0" url="/pages/login/readme/readme">《个人用户服务协议》</navigator>
+      </view>
+    </view>
+    <view class="text-center go-register">
+      <navigator url="/pages/login/login/login" open-type="redirect">已有账号，立即登录</navigator>
+    </view>
+  </view>
+</view>

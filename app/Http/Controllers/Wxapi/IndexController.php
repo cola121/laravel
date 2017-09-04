@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Wxapi;
 
+use App\Models\EmoticonType;
 use App\Models\VideoImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +11,9 @@ use App\Models\Emoticon;
 use App\Models\Actors;
 use App\Models\MultiPurpose;
 use App\Lib\CommonUtils;
+use App\Lib\ImageMake;
 use App\Lib\VideoTypes;
+use App\Lib\Websocket;
 use App\Lib\getDouBanMovieInfo;
 class IndexController extends Controller
 {
@@ -131,22 +134,191 @@ class IndexController extends Controller
     ];
 
     public function test() {
+        $resa = public_path().'/tests/test.png';
+        $image = new ImageMake($resa);
+        $image->CIRCUMROTATE = 45.00;
+        $rotate = $image->turn();
+        imagejpeg($rotate,$resa);
+        $image = new \Imagick( public_path().'/tests/test.png');
+        $code = new \Imagick( 'http://emoji-bucket.oss-cn-beijing.aliyuncs.com/emoji/1001/1000_1001_full.jpeg');
+
+        $code->compositeImage($image,\imagick::COMPOSITE_DEFAULT , 100, 100 );
+        $res = $code->writeimage(public_path().'/temp/emoji/'. 'tmp666.jpeg');
+       // $image->writeimage(public_path().'/temp/emoji/'. 'tmp5.png');
+exit;
+        $twidth = 300;
+// 文本图片的高
+        $theight = 300;
+        // 初始化图片对象
+        $text = new \Imagick;
+// 初始化绘制对象
+        $draw = new \ImagickDraw;
+
+        $text->newImage($twidth, $theight, new \ImagickPixel('#ffffff'));
+        $text->setImageFormat('png');
+
+        $text->transparentPaintImage(new \ImagickPixel('#ffffff'), 0, '10', 0);
+        $text->rotateImage(new \ImagickPixel(), 45);
+        //$text->rotateImage(new \ImagickPixel(), 45);
+// 绘制图片
+       // $text->drawImage($draw);
+
+//        $codeLogo = new \Imagick( 'http://emoji-bucket.oss-cn-beijing.aliyuncs.com/emoji/1001/1001_1001_raw.jpeg' );
+//        $codeLogo->thumbnailImage(200,200);
+//        $codeLogo->setimageformat('png');
+//        $codeLogo->transparentPaintImage(new \ImagickPixel('rgba(238,238,238)'), 0, '10', 0);
+//        $text->compositeImage( $codeLogo, \imagick::COMPOSITE_DEFAULT , 100, 100 );
+
+        $text->writeimage(public_path().'/temp/emoji/'. 'tmp5.png');
+        //$codeLogo->roundCorners( 300, 300 ); // radio 圆角处理
+
+
+exit;
+
+
+        $resa = public_path().'/tests/test.png';
+        //var_dump($resa);
+        $img = imagecreatetruecolor(300, 300);
+//2.上色
+        $color=imagecolorallocate($img,255,255,255);
+//3.设置透明
+        imagecolortransparent($img,$color);
+        imagefill($img,0,0,$color);
+        imagecopymerge($img, $resa, 0 ,0,0,0);
+        //创建图像资源，以jpeg格式为例
+        $source = imagecreatefromjpeg($resa);
+        //使用imagerotate()函数按指定的角度旋转
+        $rotate = imagerotate($source, '45', 0);
+        //旋转后的图片保存
+        imagejpeg($rotate,$resa);
+exit;
+
+
+$txt = '可乐测试';
+$txt2 = '测试第二行';
+        $twidth = 300;
+// 文本图片的高
+        $theight = 200;
+        // 初始化图片对象
+        $text = new \Imagick;
+// 初始化绘制对象
+        $draw = new \ImagickDraw;
+// 设置字体，这里是放到网站的font下的微软雅黑
+        $draw->setFont(public_path().'/font/msyh.ttf');
+// 文字大小
+        $draw->setFontSize(40);
+// 文字颜色
+        $draw->setFillColor(new \ImagickPixel('#000000'));
+// 文字对齐方式
+        $draw->setTextAlignment(\Imagick::ALIGN_LEFT);
+// 获取文字信息，主要是长宽，因为要实现在图片居中
+       // $a = $text->queryFontMetrics($draw, $txt);
+// 添加文字
+        $draw->annotation(($twidth - 160) / 2, 80, $txt);
+        $draw->annotation(($twidth - 160) / 2, 40, $txt2);
+//        $text->annotateImage($draw, ($twidth - 160) / 2, 80, 0,'第一行');
+//        $text->annotateImage($draw, ($twidth - 160) / 2, 40, 0,'第二行');
+// 建立图像
+        $text->newImage($twidth, $theight, new \ImagickPixel('#ffffff'));
+// 图片格式
+        $text->setImageFormat('png');
+        $text->transparentPaintImage(new \ImagickPixel('#ffffff'), 0, '10', 0);
+        //$text->rotateImage(new \ImagickPixel(), 45);
+// 绘制图片
+        $text->drawImage($draw);
+//        $text->writeimage(public_path().'/temp/emoji/'. 'tmp4.png');exit;
+//        exit;
+
+        $code = new \Imagick( 'http://emoji-bucket.oss-cn-beijing.aliyuncs.com/emoji/1001/1000_1001_full.jpeg');
+        $codePro = $code->getImageGeometry();
+        $codeWidth = $codePro['width'];
+        $codeHeight = $codePro['height'];
+        $code->compositeImage( $text, \imagick::COMPOSITE_DEFAULT , 0, 100 );
+        $res = $code->writeimage(public_path().'/temp/emoji/'. 'tmp3.jpeg');
+        $code->destroy();
+        var_dump($res);
+        exit;
+
+        $codeLogo = new \Imagick( 'http://emoji-bucket.oss-cn-beijing.aliyuncs.com/emoji/1001/1001_1001_raw.jpeg' );
+        $codeLogo->thumbnailImage(200,200);
+        $codeLogo->setimageformat('png');
+        $codeLogo->transparentPaintImage(new \ImagickPixel('rgba(238,238,238)'), 0, '10', 0);
+
+        $codeLogo->rotateImage(new \ImagickPixel(), 45);
+        $codeLogo->writeimage(public_path().'/temp/emoji/'. 'tmp4.png');
+        //$codeLogo->roundCorners( 300, 300 ); // radio 圆角处理
+        $code->compositeImage( $codeLogo, \imagick::COMPOSITE_DEFAULT , 100, 100 );
+        $codeLogo->destroy();
+        $res = $code->writeimage(public_path().'/temp/emoji/'. 'tmp3.jpeg');
+        $code->destroy();
+        var_dump($res);
+        exit;
+        header("Content-Type: image/{$code->getImageFormat()}");
+        echo $code->getImageBlob( );exit;
+//        $res = CommonUtils::saveImage($url,'1001');
+//        var_dump(substr(strrchr($res[1], '.'), 1));exit;
+//        $emojis = Emoticon::where('download_status', 0)
+//            ->orderBy('created_at', 'asc')
+//            ->take(10)
+//            ->get();
+//
+//        foreach ($emojis as $emoji) {
+//            $raw = $emoji->raw_image;
+//            $full = $emoji->full_image;
+//            $category = $emoji->category;
+//            $id = $emoji->em_id;
+//            if ($raw) {
+//                $name = $id."_".$category.'_raw';
+//                $resa = CommonUtils::GrabImage($raw, $category, $name);
+//            }
+//            if ($full) {
+//                $name = $id."_".$category.'_full';
+//                $resb = CommonUtils::GrabImage($full, $category, $name);
+//            }
+//
+//            if ($resa && $resb) {
+//                $emoji->download_status = 1;
+//                $emoji->save();
+//            }
+//
+//        }
+//        exit();
+
+
+
+
+
+
+
         echo "start";
-        $cateArr = self::category;
-        $url = 'https://api.jiefu.tv/app2/api/dt/tag/allList.html?pageNum=0&pageSize=48';
+       // $multi = new MultiPurpose();
+       // $set = MultiPurpose::where('purpose', 'emojiStart')->first();
+        //$cateArr = self::category;
+        $url = 'https://shenbugua.com/dtapi/getdoutusearch?keyword=围观&page=1';
+        //$url = 'https://shenbugua.com/dtapi/getdoutusearch?keyword=围观&page='.$set['num_a'];
 
         $result = CommonUtils::requestUrl($url);
        // echo "<pre>";print_r(json_decode($result, true));exit;
         $result = json_decode($result, true);
-         echo "<pre>";print_r($result);exit;
+         //echo "<pre>";print_r($result);exit;
        // echo "<pre>";
-        $i = '1';
-        foreach ($result['data'] as $row) {
-           foreach ($row['tagList'] as $val) {
-               echo  $i.' => '. "'".$val['id']."'". ',' ."<br>";
-               $i++;
-           }
+        //$i = '1';
+        foreach ($result['data']['list'] as $row) {
+            //var_dump();
+            $data['raw_image'] = substr($row['fpic'], 0, strripos($row['fpic'], '?'));
+            $data['text'] = $row['text'];
+            $data['title'] = $row['title'];
+            $data['edit_type'] = 3;
+            $emoji = new Emoticon();
+            $data['category'] = '1097';
+            $emoji->saveEmoji($data);
+           // echo "<pre>";print_r($data);
         }
+//        MultiPurpose::where('purpose', 'emojiStart')->update(
+//            [
+//                'num_a' => $set['num_a'] + 1
+//            ]
+//        );
 
 //        set_time_limit(0);
 //

@@ -1,0 +1,26 @@
+
+.picker-address {
+    width:100%;
+    height:300px;
+    bottom:0;
+    position:absolute;
+    left:0;
+}
+.picker-view-header {
+  position: absolute;
+  top:0px;
+  width: 100%;
+  z-index: 4;
+}
+
+.picker-view-header .cancel {
+  float: left;
+  margin: 20rpx;
+  color: #818181;
+}
+
+.picker-view-header .confirm {
+  float: right;
+  margin: 20rpx;
+  color: #2FB42E
+}

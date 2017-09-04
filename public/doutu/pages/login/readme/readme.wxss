@@ -1,0 +1,9 @@
+/* readme.wxss */
+.main {
+    width: 640rpx;
+    margin: 0 auto;
+}
+
+.content {
+    color: #666;
+}

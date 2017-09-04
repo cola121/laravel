@@ -1,0 +1,42 @@
+<page>
+    <view class="header-search-bar display-flex fixed">
+        <view bindtap="jumpToListOne" class="header-search-bar__form display-flex" >
+            <view class="u-icon-32 weui-icon-search">
+                <block>
+                    <icon />
+                </block>
+            </view>
+            <text class="txt">搜索表情</text>
+        </view>
+     </view>
+     <!--end 搜索-->
+     <!--列表-->
+     <view class="f-list-content" style="margin-top: 96rpx">
+         <block wx:for="{{jobs}}" wx:key="id">
+          <navigator class="list-item" 
+          url="/pages/jobs/job-info/job-info?jobID={{item.jobID}}">
+              <view class="company-logo">
+                  <image mode="aspectFit" src="{{item.corpLogo ? item.corpLogo : 'https://wxapi.goodjobs.cn/images/mlogo.png?0628'}}" class="photo"></image>
+              </view>
+              <view class="right-content">
+                <view class="job-name">
+                  <view class="job-name-view">
+                    <view class="title">{{item.jobName}}</view>
+                  </view>
+                  <view class="organge money">{{item.salary}}</view>
+                </view>
+                <view class="corp-name">
+                    <view class="company-name-list">{{item.corpName}}</view>
+                   <view wx:if="{{item.memType == 'pro'}}" class="uicon recommend"></view>
+                </view>
+                  <view class="job-ask">
+                      <view class="info">{{item.jobCity}} | {{item.degreeName}} | 
+                      {{item.reqWorkTime}}</view>
+                      <view class="date">{{item.pubDate}}</view>
+                  </view>                
+              </view>
+          </navigator>
+        </block>
+     </view>
+     <!--end 列表-->
+</page>

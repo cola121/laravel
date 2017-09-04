@@ -1,0 +1,340 @@
+/*common*/
+.f-clearfix::after{content:''; overflow: hidden; height: 0; line-height: 0; clear: both; display: block;}
+.ellipsis{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.font40{font-size: 40rpx;}
+.font36{font-size: 36rpx;}
+.font32{font-size: 32rpx;}
+.font28{font-size: 28rpx;}
+.font24{font-size: 24rpx;}
+.font18{font-size: 18rpx;}
+.organge{ color:#e4442c}
+.grey{ color:#a3a3a3;}
+
+.margin{margin:30rpx;}
+.margin-top{margin-top:30rpx;}
+.margin-left{margin-left:30rpx;}
+.margin-right{margin-right:30rpx;}
+.margin-bottom{margin-bottom:30rpx;}
+.margin{margin:15rpx;}
+.margin-top-15{margin-top:15rpx;}
+.margin-left-15{margin-left:15rpx;}
+.margin-right-15{margin-right:15rpx;}
+.margin-bottom-15{margin-bottom:15rpx;}
+.fix-button-bottom{padding-bottom: 200rpx}
+.padding{padding:30rpx;}
+.padding-top{padding-top:30rpx;}
+.padding-left{padding-left:30rpx;}
+.padding-right{padding-right:30rpx;}
+.padding-bottom{padding-bottom:30rpx;}
+.padding-15{padding:15rpx;}
+.padding-top-15{padding-top:15rpx;}
+.padding-left-15{padding-left:15rpx;}
+.padding-right-15{padding-right:15rpx;}
+.padding-bottom-15{padding-bottom:15rpx;}
+.fl{float:left;}
+.fr{float:right;}
+.clearfix:after{content:'';display:table;clear:both;}
+
+.color-blue{color:#2284e5}
+/*flex*/
+.display-flex{display:flex; display: -webkit-flex;}
+/* reset */
+page {
+  background-color: #fff;
+  height: 100%;
+  line-height: 1.6;
+  font-size: 28rpx;
+}
+.page-center{width:690rpx; margin: auto auto;}
+checkbox, radio{
+  margin-right: 10rpx;margin-top:12rpx;
+}
+button{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+form{
+  width: 100%;
+}
+
+/* lib */
+.strong{
+  font-weight: bold;
+}
+.tc{
+  text-align: center;
+}
+
+/* page */
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+  font-size: 32rpx;
+  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.page-head{
+  padding: 60rpx 50rpx 80rpx;
+  text-align: center;
+}
+.page-head-title{
+  display: inline-block;
+  padding: 0 40rpx 20rpx 40rpx;
+  font-size: 32rpx;
+  color: #BEBEBE;
+}
+.page-head-line{
+  margin: 0 auto;
+  width: 150rpx;
+  height: 2rpx;
+  background-color: #D8D8D8;
+}
+.page-head-desc{
+  padding-top: 20rpx;
+  color: #9B9B9B;
+  font-size: 32rpx;
+}
+
+.page-body {
+  width: 100%;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+.page-body-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.page-body-wording {
+  text-align: center;
+  padding: 200rpx 100rpx;
+}
+.page-body-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  width: 100%;
+  padding: 50rpx 0 150rpx 0;
+}
+.page-body-title {
+  margin-bottom: 100rpx;
+  font-size: 32rpx;
+}
+.page-body-text {
+  font-size: 30rpx;
+  line-height: 26px;
+  color: #ccc;
+}
+.page-body-text-small {
+  font-size: 24rpx;
+  color: #000;
+  margin-bottom: 100rpx;
+}
+
+.page-foot{
+  margin: 100rpx 0 30rpx 0;
+  text-align: center;
+  color: #1aad19;
+  font-size: 0;
+}
+.icon-foot{
+  width: 152rpx;
+  height: 23rpx;
+}
+
+.page-section{
+  width: 100%;
+  margin-bottom: 60rpx;
+}
+.page-section_center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.page-section:last-child{
+  margin-bottom: 0;
+}
+.page-section-gap{
+  box-sizing: border-box;
+  padding: 0 30rpx;
+}
+.page-section-spacing{
+  box-sizing: border-box;
+  padding: 0 80rpx;
+}
+.page-section-title{
+  font-size: 28rpx;
+  color: #999999;
+  margin-bottom: 10rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.page-section-gap .page-section-title{
+  padding-left: 0;
+  padding-right: 0;
+}
+.page-section-ctn{
+
+}
+.empty-tip{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 330rpx;
+}
+.empty-tip-text{
+  height: 100%;
+  width: 100%;
+  font-size: 55rpx;
+  text-align: center;
+  color: #888888
+}
+
+/* widget */
+.btn-area{
+  margin-top: 60rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.fix-button{
+  bottom:0;
+  position: fixed;
+  z-index: 9999
+}
+
+.image-plus {
+  width: 150rpx;
+  height: 150rpx;
+  border: 2rpx solid #D9D9D9;
+  position: relative;
+}
+.image-plus-nb{
+  border: 0;
+}
+.image-plus-text{
+  color: #888888;
+  font-size: 28rpx;
+}
+.image-plus-horizontal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #d9d9d9;
+  width: 4rpx;
+  height: 80rpx;
+  transform: translate(-50%, -50%);
+}
+.image-plus-vertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #d9d9d9;
+  width: 80rpx;
+  height: 4rpx;
+  transform: translate(-50%, -50%);
+}
+
+.demo-text-1{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #1AAD19;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-1:before{
+  content: 'A';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-2{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #2782D7;
+  color: #FFFFFF;
+  font-size: 36rpx;
+}
+.demo-text-2:before{
+  content: 'B';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.demo-text-3{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-color: #F1F1F1;
+  color: #353535;
+  font-size: 36rpx;
+}
+.demo-text-3:before{
+  content: 'C';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*icon*/
+.u-icon-32{display:inline-block; width: 33rpx; height: 33rpx; background:url(https://wxapi.goodjobs.cn/images/bg.png?=21845) no-repeat;  background-size:600rpx 800rpx; vertical-align: middle; margin-top:-2px;}
+.weui-icon-search{ background-position:0 0; width:32rpx; height:32rpx;}
+.u-icon-address{background-position:-48rpx 0;}
+.u-icon-undergo{background-position:-96rpx 0;}
+.u-icon-education{background-position:-144rpx 0;}
+.u-icon-user{background-position:-192rpx 0;}
+.u-icon-phone{background-position:-238rpx 0;}
+.u-icon-time{background-position:-287rpx 0;width:34rpx;height: 34rpx}
+.u-icon-arrow{background-position:-528rpx 0;}
+.u-icon-down{background-position:-336rpx 0;}
+.u-icon-fast{background-position:-479rpx -48rpx;}
+.u-icon-num{background-position:-560rpx -48rpx;}
+.u-icon-language{background-position:-527rpx -46rpx;width: 35rpx}
+.u-icon-rest{background-position:-240rpx -96rpx;}
+.u-icon-career{background-position:-192rpx -96rpx;}
+.u-icon-call{background-position:-287rpx -94rpx;width:34rpx;height: 34rpx}
+
+.u-icon-login-phone{background-position:-0rpx -336rpx;}
+.u-icon-login-psw{background-position:-48rpx -336rpx; width:32rpx; height:32rpx;}
+.u-icon-login-mark{background-position:-96rpx -336rpx;}
+.u-icon-login-del{background-position:-144rpx -336rpx;}
+.u-icon-login-close-eye{background-position:-192rpx -336rpx;}
+.u-icon-login-open-eye{background-position:-240rpx -336rpx;}
+
+.u-icon-size{width:43rpx;height:46rpx;}
+.u-icon-user-resume{background-position:5rpx -34rpx}
+.u-icon-user-view{background-position:-36rpx -32rpx;}
+.u-icon-user-flush{background-position:-78rpx -40rpx;}
+.u-icon-user-top{background-position:-144rpx -48rpx;}
+.u-icon-user-lock{background-position:-157rpx -39rpx;}
+.u-icon-user-exit{background-position:-235rpx -39rpx;}
+.u-icon-user-del{background-position:-287rpx -46rpx;width:35rpx;height:35rpx;}
+.u-icon-user-edit{background-position:-385rpx -48rpx;}
+.u-icon-user-up{background-position:-432rpx -48rpx;}
+.u-icon-user-down{background-position:-432rpx -48rpx;transform: rotate(180deg); -ms-transform: rotate(180deg); -moz-transform: rotate(180deg); -webkit-transform: rotate(180deg); -o-transform: rotate(180deg); }
+
+.u-icon-48{display:inline-block; width: 48rpx; height: 48rpx; background:url(https://wxapi.goodjobs.cn/images/bg.png?=13786) no-repeat;  background-size:600rpx 800rpx; vertical-align: middle; }
+.u-icon-message-apply{background-position:4rpx -80rpx;}
+.u-icon-message-invite{background-position:-42rpx -80rpx;}
+.u-icon-message-vhistory{background-position:-36rpx -32rpx;} 
+
+button[type="primary"]{background-color:#2782D7}
+button[type="primary"]:active,.button-hover[type="primary"]{background-color:#167ce0; color: #b7dbfe;}
+button[disabled][type="primary"] {background-color:#3190e6;}
+
+.fix-txa{padding:0rpx 40rpx 30rpx;}
+.grey-block{height:150rpx;background-color:#efefef}
+

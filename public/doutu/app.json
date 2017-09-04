@@ -1,0 +1,79 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/message/message",
+        "pages/login/login/login",
+        "pages/login/check/check",
+        "pages/login/register/register",
+        "pages/login/password/password",
+        "pages/usercenter/index/index",
+        "pages/usercenter/resume-integrity/index",
+        "pages/usercenter/resume-top/index",
+        "pages/usercenter/resume-order/index",
+        "pages/usercenter/resume-open/index",
+        "pages/usercenter/resume-open-corplist/index",
+        "pages/usercenter/job-apply-list/index",
+        "pages/usercenter/corp-view-history/index",
+        "pages/usercenter/invite/index",
+        "pages/usercenter/resume/base-info/base-info",
+        "pages/usercenter/resume/edu-list/edu-list",
+        "pages/usercenter/resume/edu-info/edu-info",
+        "pages/usercenter/resume/skill-list/skill-list",
+        "pages/usercenter/resume/train-list/train-list",
+        "pages/usercenter/resume/train-info/train-info",
+        "pages/usercenter/resume/lan-list/lan-list",
+        "pages/usercenter/resume/lan-info/lan-info",
+        "pages/usercenter/resume/cert-list/cert-list",
+        "pages/usercenter/resume/cert-info/cert-info",
+        "pages/usercenter/resume/it-list/it-list",
+        "pages/usercenter/resume/it-info/it-info",
+        "pages/usercenter/view-resume/view-resume",
+        "pages/usercenter/resume/eval-info/eval-info",
+        "pages/usercenter/resume/school/school",
+        "pages/usercenter/resume/award-list/award-list",
+        "pages/usercenter/resume/award-info/award-info",
+        "pages/usercenter/resume/prac-zw-list/prac-zw-list",
+        "pages/usercenter/resume/prac-zw-info/prac-zw-info",
+        "pages/usercenter/resume/prac-sj-list/prac-sj-list",
+        "pages/usercenter/resume/prac-sj-info/prac-sj-info",
+        "pages/usercenter/resume/ite-list/ite-list",
+        "pages/usercenter/resume/ite-info/ite-info",
+        "pages/usercenter/resume/cv-will/cv-will",
+        "pages/selector/selector",
+        "pages/usercenter/resume/work-list/work-list",
+        "pages/usercenter/resume/work-info/work-info",
+        "pages/login/readme/readme"
+    ],
+    "tabBar": {
+        "color": "#9d9d9d",
+        "selectedColor": "#2d90f2",
+        "borderStyle": "white",
+        "backgroundColor": "#FAFAFA",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "resources/job.png",
+                "selectedIconPath": "resources/job_on.png",
+                "text": "表情集市"
+            },
+            {
+                "pagePath": "pages/message/message",
+                "iconPath": "resources/msg.png",
+                "selectedIconPath": "resources/msg_on.png",
+                "text": "表情制作"
+            },
+            {
+                "pagePath": "pages/usercenter/index/index",
+                "iconPath": "resources/user.png",
+                "selectedIconPath": "resources/user_on.png",
+                "text": "我的"
+            }
+        ]
+    },
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#258bf0",
+        "navigationBarTitleText": "全民来斗图",
+        "navigationBarTextStyle": "#fff"
+    }
+}
